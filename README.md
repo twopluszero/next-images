@@ -1,18 +1,18 @@
-# Next.js + Images
+# Next.js + Fonts
 
-Import images in [Next.js](https://github.com/zeit/next.js)
-(jpg, jpeg, svg, png and gif images)
+Import fonts in [Next.js](https://github.com/zeit/next.js)
+(woff, woff2, eot, ttf & otf)
 
 ## Installation
 
 ```
-npm install --save next-images
+npm install --save next-fonts
 ```
 
 or
 
 ```
-yarn add next-images
+yarn add next-fonts
 ```
 
 ## Usage
@@ -21,34 +21,18 @@ Create a `next.config.js` in your project
 
 ```js
 // next.config.js
-const withImages = require('next-images')
-module.exports = withImages()
+const withFonts = require('next-fonts')
+module.exports = withFonts()
 ```
 
 Optionally you can add your custom Next.js configuration as parameter
 
 ```js
 // next.config.js
-const withImages = require('next-images')
-module.exports = withImages({
+const withFonts = require('next-fonts')
+module.exports = withFonts({
   webpack(config, options) {
     return config
   }
 })
-```
-
-And in your components or pages simply import your images:
-
-```js
-export default () => <div>
-  <img src={require('./my-image.jpg')} />
-</div>
-```
-or
-```js
-import img from './my-image.jpg'
-
-export default () => <div>
-  <img src={img} />
-</div>
 ```
