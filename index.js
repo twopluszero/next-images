@@ -8,7 +8,7 @@ module.exports = (nextConfig = {}) => {
       }
 
       config.module.rules.push({
-        test: /\.(jpe?g|png|svg|gif)$/,
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           {
             loader: "url-loader",
@@ -16,7 +16,7 @@ module.exports = (nextConfig = {}) => {
               limit: 8192,
               fallback: "file-loader",
               publicPath: "/_next/",
-              outputPath: "static/images/",
+              outputPath: "static/fonts/",
               name: "[name]-[hash].[ext]"
             }
           }
