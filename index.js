@@ -15,7 +15,7 @@ module.exports = (nextConfig = {}) => {
             options: {
               limit: 8192,
               fallback: "file-loader",
-              publicPath: "/_next/",
+              publicPath: "/_next/static/images/",
               outputPath: "static/images/",
               name: "[name]-[hash].[ext]"
             }
