@@ -7,6 +7,8 @@ module.exports = (nextConfig = {}) => {
         )
       }
 
+      const assetPrefix = nextConfig.assetPrefix || "";
+
       config.module.rules.push({
         test: /\.(jpe?g|png|svg|gif)$/,
         use: [
@@ -15,7 +17,7 @@ module.exports = (nextConfig = {}) => {
             options: {
               limit: 8192,
               fallback: "file-loader",
-              publicPath: "/_next/static/images/",
+              publicPath: `${assetPrefix}/_next/static/images/`,
               outputPath: "static/images/",
               name: "[name]-[hash].[ext]"
             }
