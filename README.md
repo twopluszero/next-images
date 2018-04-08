@@ -3,6 +3,14 @@
 Import images in [Next.js](https://github.com/zeit/next.js)
 (jpg, jpeg, svg, png and gif images)
 
+## Features
+* Load images from local computer
+* Load images from remote (CDN for example) [by setting assetPrefix](https://github.com/zeit/next.js/#dynamic-assetprefix)
+* Inline small images to Base64 for reducing http requests
+* Adds a content hash to the file name so images can get cached
+
+If you also want image minimalization and optimization have a look at [next-optimized-images](https://github.com/cyrilwanner/next-optimized-images)
+
 ## Installation
 
 ```
