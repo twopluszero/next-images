@@ -8,6 +8,7 @@ module.exports = (nextConfig = {}) => {
       }
 
       const assetPrefix = nextConfig.assetPrefix || "";
+      const limit = nextConfig.inlineImageLimit || 8192;
 
       config.module.rules.push({
         test: /\.(jpe?g|png|svg|gif)$/,
@@ -15,9 +16,9 @@ module.exports = (nextConfig = {}) => {
           {
             loader: "url-loader",
             options: {
-              limit: 8192,
+              limit,
               fallback: "file-loader",
-              publicPath: `${assetPrefix}/_next/static/images/`,
+              publicPath: `${assetPrefix}/_next/`,
               outputPath: "static/images/",
               name: "[name]-[hash].[ext]"
             }
