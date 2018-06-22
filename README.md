@@ -62,6 +62,22 @@ export default () => <div>
 ```
 
 ## Options
+
+### assetPrefix
+You can serve remote images by setting ***assetPrefix*** option.
+
+Example usage:
+```js
+// next.config.js
+const withImages = require('next-images')
+module.exports = withImages({
+  assetPrefix: 'https://example.com',
+  webpack(config, options) {
+    return config
+  }
+})
+```
+
 ### InlineImageLimit
 Inlines images with sizes below ***inlineImageLimit*** to Base64. Default value is 8192.
 
