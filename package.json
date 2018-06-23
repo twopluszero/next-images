@@ -6,6 +6,6 @@
   "repository": "arefaslani/next-images",
   "dependencies": {
     "file-loader": "^1.1.11",
-    "url-loader": "^0.6.2"
+    "url-loader": "^1.0.1"
   }
 }
