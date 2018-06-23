@@ -1,7 +1,6 @@
 # Next.js + Images
-![npm](https://img.shields.io/npm/dm/next-images.svg)
-![npm](https://img.shields.io/npm/l/next-images.svg)
-![David](https://img.shields.io/david/arefaslani/next-images.svg)
+![npm](https://img.shields.io/npm/dm/next-images.svg?style=flat-square)
+![npm](https://img.shields.io/npm/l/next-images.svg?style=flat-square)
 
 Import images in [Next.js](https://github.com/zeit/next.js)
 (jpg, jpeg, svg, png and gif images)
