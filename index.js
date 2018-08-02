@@ -12,7 +12,7 @@ module.exports = (nextConfig = {}) => {
       const limit = nextConfig.inlineImageLimit || 8192;
 
       config.module.rules.push({
-        test: /\.(jpe?g|png|svg|gif)$/,
+        test: /\.(jpe?g|png|svg|gif|ico)$/,
         use: [
           {
             loader: "url-loader",
