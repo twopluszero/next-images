@@ -1,4 +1,4 @@
-#Update: This project is now deprecated and not being maintained. 
+# Update: This project is now deprecated and not being maintained. 
 
 # Next.js + Fonts
 
