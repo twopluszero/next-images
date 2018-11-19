@@ -1,3 +1,5 @@
+#Update: This project is now deprecated and not being maintained. 
+
 # Next.js + Fonts
 
 Import fonts in [Next.js](https://github.com/zeit/next.js)
