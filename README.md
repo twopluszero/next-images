@@ -4,7 +4,7 @@
 ![npm](https://img.shields.io/david/arefaslani/next-images.svg)
 
 Import images in [Next.js](https://github.com/zeit/next.js)
-(jpg, jpeg, svg, png, ico and gif images)
+(jpg, jpeg, svg, png, ico, webp and gif images)
 
 ## Features
 * Load images from local computer

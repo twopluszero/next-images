@@ -11,7 +11,7 @@ module.exports = (nextConfig = {}) => {
       }
 
       config.module.rules.push({
-        test: /\.(jpe?g|png|svg|gif|ico)$/,
+        test: /\.(jpe?g|png|svg|gif|ico|webp)$/,
         use: [
           {
             loader: "url-loader",
