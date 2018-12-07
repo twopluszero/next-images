@@ -1,9 +1,7 @@
-# Update: This project is now deprecated and not being maintained. 
-
 # Next.js + Fonts
 
 Import fonts in [Next.js](https://github.com/zeit/next.js)
-(woff, woff2, eot, ttf & otf)
+(woff, woff2, eot, ttf, otf & svg)
 
 ## Installation
 
@@ -23,18 +21,35 @@ Create a `next.config.js` in your project
 
 ```js
 // next.config.js
-const withFonts = require('next-fonts')
-module.exports = withFonts()
+const withFonts = require('next-fonts');
+module.exports = withFonts();
 ```
 
 Optionally you can add your custom Next.js configuration as parameter
 
 ```js
 // next.config.js
-const withFonts = require('next-fonts')
+const withFonts = require('next-fonts');
 module.exports = withFonts({
   webpack(config, options) {
-    return config
+    return config;
   }
-})
+});
+```
+
+### assetPrefix
+
+You can serve remote resources by setting **_assetPrefix_** option.
+
+Example usage:
+
+```js
+// next.config.js
+const withFonts = require('next-fonts');
+module.exports = withFonts({
+  assetPrefix: 'https://example.com',
+  webpack(config, options) {
+    return config;
+  }
+});
 ```
