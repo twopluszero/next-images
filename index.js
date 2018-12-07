@@ -7,6 +7,8 @@ module.exports = (nextConfig = {}) => {
         )
       }
 
+      const assetPrefix = nextConfig.assetPrefix || "";
+
       config.module.rules.push({
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
@@ -15,7 +17,7 @@ module.exports = (nextConfig = {}) => {
             options: {
               limit: 8192,
               fallback: "file-loader",
-              publicPath: "/_next/static/fonts/",
+              publicPath: `${assetPrefix}/_next/static/fonts/`,
               outputPath: "static/fonts/",
               name: "[name]-[hash].[ext]"
             }
