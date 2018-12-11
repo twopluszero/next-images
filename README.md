@@ -53,3 +53,20 @@ module.exports = withFonts({
   }
 });
 ```
+
+### Include SVG fonts
+
+You can also (optionally) include SVG fonts by setting **_enableSvg_** option.
+
+Example usage:
+
+```js
+// next.config.js
+const withFonts = require('next-fonts');
+module.exports = withFonts({
+  enableSvg: true,
+  webpack(config, options) {
+    return config;
+  }
+});
+```

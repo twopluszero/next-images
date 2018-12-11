@@ -9,21 +9,28 @@ module.exports = (nextConfig = {}) => {
 
       const assetPrefix = nextConfig.assetPrefix || '';
 
-      config.module.rules.push({
-        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              fallback: 'file-loader',
-              publicPath: `${assetPrefix}/_next/static/fonts/`,
-              outputPath: 'static/fonts/',
-              name: '[name]-[hash].[ext]'
+      const enableSvg = nextConfig.enableSvg || false;
+
+      let testPattern = /\.(woff|woff2|eot|ttf|otf)$/;
+
+      if (enableSvg) testPattern = /\.(woff|woff2|eot|ttf|otf|svg)$/;
+
+      if (enableSvg)
+        config.module.rules.push({
+          test: testPattern,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 8192,
+                fallback: 'file-loader',
+                publicPath: `${assetPrefix}/_next/static/fonts/`,
+                outputPath: 'static/fonts/',
+                name: '[name]-[hash].[ext]'
+              }
             }
-          }
-        ]
-      });
+          ]
+        });
 
       if (typeof nextConfig.webpack === 'function') {
         return nextConfig.webpack(config, options);
