@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": "arefaslani/next-images",
   "dependencies": {
-    "file-loader": "^2.0.0",
+    "file-loader": "^3.0.1",
     "url-loader": "^1.1.2"
   }
 }
