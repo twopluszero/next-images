@@ -95,3 +95,19 @@ module.exports = withImages({
   }
 })
 ```
+
+### Exclude
+Folders that you want to exclude from the loader. Useful for `svg-react-loader` for example.
+
+Example usage:
+```js
+// next.config.js
+const path = require('path');
+const withImages = require('next-images')
+module.exports = withImages({
+  exlude: path.resolve(__dirname, 'src/assets/svg'),
+  webpack(config, options) {
+    return config
+  }
+})
+```

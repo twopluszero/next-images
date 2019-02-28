@@ -12,6 +12,7 @@ module.exports = (nextConfig = {}) => {
 
       config.module.rules.push({
         test: /\.(jpe?g|png|svg|gif|ico|webp)$/,
+        exclude: nextConfig.exclude,
         use: [
           {
             loader: "url-loader",
