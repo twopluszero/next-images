@@ -105,7 +105,7 @@ Example usage:
 const path = require('path');
 const withImages = require('next-images')
 module.exports = withImages({
-  exlude: path.resolve(__dirname, 'src/assets/svg'),
+  exclude: path.resolve(__dirname, 'src/assets/svg'),
   webpack(config, options) {
     return config
   }
