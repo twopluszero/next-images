@@ -70,3 +70,7 @@ module.exports = withFonts({
   }
 });
 ```
+
+## Styled omponents
+
+Please see https://github.com/rohanray/font-error for sample code. Live URL : https://type-error-idfldxadbv.now.sh 
