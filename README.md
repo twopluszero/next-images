@@ -71,6 +71,6 @@ module.exports = withFonts({
 });
 ```
 
-## Styled omponents
+## Styled components
 
-Please see https://github.com/rohanray/font-error for sample code. Live URL : https://type-error-idfldxadbv.now.sh 
+Please see https://github.com/rohanray/font-error for sample code to use with [styled components](https://www.styled-components.com/). Live URL : https://type-error-idfldxadbv.now.sh 
