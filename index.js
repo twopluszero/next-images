@@ -15,10 +15,10 @@ module.exports = (nextConfig = {}) => {
         exclude: nextConfig.exclude,
         use: [
           {
-            loader: "url-loader",
+            loader: require.resolve("url-loader"),
             options: {
               limit: nextConfig.inlineImageLimit,
-              fallback: "file-loader",
+              fallback: require.resolve("file-loader"),
               publicPath: `${nextConfig.assetPrefix}/_next/static/images/`,
               outputPath: `${isServer ? "../" : ""}static/images/`,
               name: "[name]-[hash].[ext]"
