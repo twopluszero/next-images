@@ -1,7 +1,10 @@
 # Next.js + Images
+![npm](https://img.shields.io/npm/dm/next-images.svg?style=flat-square)
+![npm](https://img.shields.io/npm/l/next-images.svg?style=flat-square)
+![npm](https://img.shields.io/david/arefaslani/next-images.svg)
 
 Import images in [Next.js](https://github.com/zeit/next.js)
-(jpg, jpeg, svg, png and gif images)
+(jpg, jpeg, svg, png, ico, webp and gif images)
 
 ## Features
 * Load images from local computer
@@ -62,6 +65,22 @@ export default () => <div>
 ```
 
 ## Options
+
+### assetPrefix
+You can serve remote images by setting ***assetPrefix*** option.
+
+Example usage:
+```js
+// next.config.js
+const withImages = require('next-images')
+module.exports = withImages({
+  assetPrefix: 'https://example.com',
+  webpack(config, options) {
+    return config
+  }
+})
+```
+
 ### InlineImageLimit
 Inlines images with sizes below ***inlineImageLimit*** to Base64. Default value is 8192.
 
@@ -71,6 +90,22 @@ Example usage:
 const withImages = require('next-images')
 module.exports = withImages({
   inlineImageLimit: 16384,
+  webpack(config, options) {
+    return config
+  }
+})
+```
+
+### Exclude
+Folders that you want to exclude from the loader. Useful for `svg-react-loader` for example.
+
+Example usage:
+```js
+// next.config.js
+const path = require('path');
+const withImages = require('next-images')
+module.exports = withImages({
+  exclude: path.resolve(__dirname, 'src/assets/svg'),
   webpack(config, options) {
     return config
   }
