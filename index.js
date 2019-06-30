@@ -10,20 +10,30 @@ module.exports = (nextConfig = {}) => {
 
       const assetPrefix = nextConfig.assetPrefix || "";
       const limit = nextConfig.inlineImageLimit || 8192;
+      const publicPath = `${assetPrefix}/_next/static/images/`;
+      const outputPath = `${isServer ? "../" : ""}static/images/`;
 
       config.module.rules.push({
         test: /\.(jpe?g|png|svg|gif)$/,
-        use: [
+        oneOf: [
+          {
+            resourceQuery: /ni-ignore/, // foo.svg?ignore
+            loader: 'file-loader',
+            options: {
+              publicPath,
+              outputPath,
+              name: "[name]-[hash].[ext]"
+            }
+          },
           {
             loader: "url-loader",
             options: {
               limit,
-              fallback: "file-loader",
-              publicPath: `${assetPrefix}/_next/static/images/`,
-              outputPath: `${isServer ? "../" : ""}static/images/`,
+              publicPath,
+              outputPath,
               name: "[name]-[hash].[ext]"
             }
-          }
+          },
         ]
       });
 
