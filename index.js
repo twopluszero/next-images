@@ -25,8 +25,8 @@ module.exports = (nextConfig = {}) => {
             options: {
               limit: 8192,
               fallback: 'file-loader',
-              publicPath: `${assetPrefix}/_next/static/fonts/`,
-              outputPath: `${isServer ? "../" : ""}static/fonts/`,
+              publicPath: `${assetPrefix}/_next/static/chunks/fonts/`,
+              outputPath: `${isServer ? "../" : ""}static/chunks/fonts/`,
               name: '[name]-[hash].[ext]'
             }
           }
