@@ -1,11 +1,11 @@
 {
-  "name": "next-fonts",
-  "version": "0.17.0",
-  "main": "index.js",
-  "license": "MIT",
-  "repository": "rohanray/next-fonts",
-  "dependencies": {
-    "file-loader": "^2.0.0",
-    "url-loader": "^1.1.1"
-  }
+	"name": "next-fonts",
+	"version": "0.18.0",
+	"main": "index.js",
+	"license": "MIT",
+	"repository": "rohanray/next-fonts",
+	"dependencies": {
+		"file-loader": "^2.0.0",
+		"url-loader": "^1.1.1"
+	}
 }
