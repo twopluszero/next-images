@@ -111,3 +111,17 @@ module.exports = withImages({
   }
 })
 ```
+
+### Typescript
+
+With TypeScript, you can run into this error: `Type 'typeof import("*.png")' is not assignable to type 'string'.`. 
+
+TS does'nt know how interpret imported images. `next-images` package contains definitions for image modules, 
+**you need to add reference to next-images types** (third line) into your `next-env.d.ts` file.
+
+```diff
+/// <reference types="next" />
+/// <reference types="next/types/global" />
+
++/// <reference types="next-images" />
+```
