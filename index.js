@@ -21,10 +21,10 @@ module.exports = (nextConfig = {}) => {
         test: testPattern,
         use: [
           {
-            loader: 'url-loader',
+            loader: require.resolve('url-loader'),
             options: {
               limit: 8192,
-              fallback: 'file-loader',
+              fallback: require.resolve('file-loader'),
               publicPath: `${assetPrefix}/_next/static/chunks/fonts/`,
               outputPath: `${isServer ? "../" : ""}static/chunks/fonts/`,
               name: '[name]-[hash].[ext]'
