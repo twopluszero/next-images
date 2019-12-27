@@ -113,7 +113,7 @@ module.exports = withImages({
 ```
 
 ### Typescript
-Typescript does'nt know how interpret imported images. `next-images` package contains definitions for image modules, 
+Typescript doesn't know how interpret imported images. `next-images` package contains definitions for image modules, 
 **you need to add reference to next-images types** (third line) into your `next-env.d.ts` file.
 
 ```diff
