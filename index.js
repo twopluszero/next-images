@@ -21,7 +21,8 @@ module.exports = (nextConfig = {}) => {
               fallback: require.resolve("file-loader"),
               publicPath: `${nextConfig.assetPrefix}/_next/static/images/`,
               outputPath: `${isServer ? "../" : ""}static/images/`,
-              name: "[name]-[hash].[ext]"
+              name: "[name]-[hash].[ext]",
+              esModule: nextConfig.esModule || false
             }
           }
         ]

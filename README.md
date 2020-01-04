@@ -112,8 +112,35 @@ module.exports = withImages({
 })
 ```
 
+### ES Modules
+> By default, file-loader generates JS modules that use the ES modules syntax. There are some cases in which using ES modules is beneficial, like in the case of module concatenation and tree shaking.
+
+ES Modules are disabled by default. You can enable them by using `esModule` config option:
+
+```javascript
+const withImages = require('next-images')
+module.exports = withImages({
+  esModule: true,
+  webpack(config, options) {
+    return config
+  }
+})
+```
+
+By enabling ES modules you should change your require statements and get default property out of them:
+
+```javascript
+<img src={require("./img.png").default}>
+```
+
+import statement should be as before.
+
+```javascript
+import img from "./img.png";
+```
+
 ### Typescript
-Typescript doesn't know how interpret imported images. `next-images` package contains definitions for image modules, 
+Typescript doesn't know how interpret imported images. `next-images` package contains definitions for image modules,
 **you need to add reference to next-images types** (third line) into your `next-env.d.ts` file.
 
 ```diff
