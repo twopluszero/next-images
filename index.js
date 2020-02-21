@@ -11,7 +11,7 @@ module.exports = (nextConfig = {}) => {
       }
 
       config.module.rules.push({
-        test: /\.(jpe?g|png|svg|gif|ico|webp)$/,
+        test: /\.(jpe?g|png|svg|gif|ico|webp|jp2)$/,
         exclude: nextConfig.exclude,
         use: [
           {

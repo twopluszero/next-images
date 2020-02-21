@@ -33,3 +33,8 @@ declare module "*.webp" {
   export = value;
 }
 
+declare module "*.jp2" {
+  const value: string;
+  export = value;
+}
+
