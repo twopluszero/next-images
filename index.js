@@ -2,7 +2,7 @@ module.exports = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
     webpack(config, options) {
       const { isServer } = options;
-      nextConfig = Object.assign({ inlineImageLimit: 8192, assetPrefix: "" }, nextConfig);
+      nextConfig = Object.assign({ inlineImageLimit: 8192, assetPrefix: "", basePath: "" }, nextConfig);
 
       if (!options.defaultLoaders) {
         throw new Error(
@@ -21,7 +21,7 @@ module.exports = (nextConfig = {}) => {
             options: {
               limit: nextConfig.inlineImageLimit,
               fallback: require.resolve("file-loader"),
-              publicPath: `${nextConfig.assetPrefix}/_next/static/images/`,
+              publicPath: `${nextConfig.assetPrefix || nextConfig.basePath}/_next/static/images/`,
               outputPath: `${isServer ? "../" : ""}static/images/`,
               name: "[name]-[hash].[ext]",
               esModule: nextConfig.esModule || false
