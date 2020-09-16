@@ -2,7 +2,12 @@ module.exports = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
     webpack(config, options) {
       const { isServer } = options;
-      nextConfig = Object.assign({ inlineImageLimit: 8192, assetPrefix: "", basePath: "" }, nextConfig);
+      nextConfig = Object.assign({
+        inlineImageLimit: 8192,
+        assetPrefix: "",
+        basePath: "",
+        fileExtensions: ["jpg", "jpeg", "png", "svg", "gif", "ico", "webp", "jp2"],
+      }, nextConfig);
 
       if (!options.defaultLoaders) {
         throw new Error(
@@ -11,7 +16,7 @@ module.exports = (nextConfig = {}) => {
       }
 
       config.module.rules.push({
-        test: /\.(jpe?g|png|svg|gif|ico|webp|jp2)$/,
+        test: new RegExp(`\.(${fileExtensions.join('|')})$`),
         // Next.js already handles url() in css/sass/scss files
         issuer: /\.\w+(?<!(s?c|sa)ss)$/i,
         exclude: nextConfig.exclude,
