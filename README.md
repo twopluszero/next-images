@@ -4,7 +4,7 @@
 ![npm](https://img.shields.io/david/arefaslani/next-images.svg)
 
 Import images in [Next.js](https://github.com/zeit/next.js)
-(jpg, jpeg, svg, png, ico, webp and gif images)
+(jpg, jpeg, png, svg, fig, ico, webp, and jp2 images by default).
 
 ## Features
 * Load images from local computer
@@ -111,6 +111,27 @@ module.exports = withImages({
   }
 })
 ```
+
+### File Extensions
+You have the power to specifiy the file extensions you'd like to pass to this loader configuration. This is helpful for
+adding image types that behave similarly, but are not included by default. It's also helpful in the same way that
+`exclude` is helpful, because you can exclude all SVGs (not just one from a specific folder).
+
+**Please note**: If you have issues with a file suffix not included in our default list
+(["jpg", "jpeg", "png", "svg", "gif", "ico", "webp", "jp2"]), we won't be able to gaurantee bug support.
+
+Example usage:
+```js
+// next.config.js
+const withImages = require('next-images')
+module.exports = withImages({
+  fileExtensions: ["jpg", "jpeg", "png", "gif"],
+  webpack(config, options) {
+    return config
+  }
+})
+```
+
 
 ### ES Modules
 > By default, file-loader generates JS modules that use the ES modules syntax. There are some cases in which using ES modules is beneficial, like in the case of module concatenation and tree shaking.
