@@ -16,7 +16,7 @@ module.exports = (nextConfig = {}) => {
       }
 
       config.module.rules.push({
-        test: new RegExp(`\.(${fileExtensions.join('|')})$`),
+        test: new RegExp(`\.(${nextConfig.fileExtensions.join('|')})$`),
         // Next.js already handles url() in css/sass/scss files
         issuer: /\.\w+(?<!(s?c|sa)ss)$/i,
         exclude: nextConfig.exclude,
