@@ -117,6 +117,8 @@ You have the power to specifiy the file extensions you'd like to pass to this lo
 adding image types that behave similarly, but are not included by default. It's also helpful in the same way that
 `exclude` is helpful, because you can exclude all SVGs (not just one from a specific folder).
 
+**TypeScript Users:** If you exclude a file suffix, please note our shipped types declaration file will be incorrect. You'll want to use declaration merging or override dependencies for the same file suffixes as needed.
+
 **Please note**: If you have issues with a file suffix not included in our default list
 (["jpg", "jpeg", "png", "svg", "gif", "ico", "webp", "jp2"]), we won't be able to gaurantee bug support.
 
