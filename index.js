@@ -1,5 +1,8 @@
 module.exports = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
+    publicRuntimeConfig: Object.assign({}, nextConfig.publicRuntimeConfig, {
+      nextImagesAssetPrefix: nextConfig.assetPrefix
+    }),
     webpack(config, options) {
       const { isServer } = options;
       nextConfig = Object.assign({
@@ -28,6 +31,13 @@ module.exports = (nextConfig = {}) => {
               fallback: require.resolve("file-loader"),
               publicPath: `${nextConfig.assetPrefix || nextConfig.basePath}/_next/static/images/`,
               outputPath: `${isServer ? "../" : ""}static/images/`,
+              postTransformPublicPath: (p) => {
+                if (!nextConfig.assetPrefix) {
+                  return `(require("next/config").default().publicRuntimeConfig.nextImagesAssetPrefix || '') + ${p}`
+                }
+                // no need to dynamically prepend assetPrefix to p since it was defined in transpilation-time
+                return p
+              },
               name: "[name]-[hash].[ext]",
               esModule: nextConfig.esModule || false
             }
