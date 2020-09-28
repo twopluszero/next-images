@@ -8,7 +8,7 @@ Import images in [Next.js](https://github.com/zeit/next.js)
 
 ## Features
 * Load images from local computer
-* Load images from remote (CDN for example) [by setting assetPrefix](https://github.com/zeit/next.js/#dynamic-assetprefix)
+* Load images from remote (CDN for example) [by setting assetPrefix](https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix)
 * Inline small images to Base64 for reducing http requests
 * Adds a content hash to the file name so images can get cached
 
@@ -69,12 +69,15 @@ export default () => <div>
 ### assetPrefix
 You can serve remote images by setting ***assetPrefix*** option.
 
+Dynamic (runtime) asset prefixes are also supported, you can enable this feature by setting ***dynamicAssetPrefix*** to `true`.
+
 Example usage:
 ```js
 // next.config.js
 const withImages = require('next-images')
 module.exports = withImages({
   assetPrefix: 'https://example.com',
+  dynamicAssetPrefix: true,
   webpack(config, options) {
     return config
   }
