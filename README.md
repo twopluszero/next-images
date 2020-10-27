@@ -175,3 +175,15 @@ Typescript doesn't know how interpret imported images. `next-images` package con
 
 + /// <reference types="next-images" />
 ```
+
+### With `next/image`
+
+Base4/Data URL encoding is not supported when using the `next/image` component for image optimization. To deactivate inline images you can set the `inlineImageLimit` to `false`:
+
+```js
+// next.config.js
+const withImages = require('next-images')
+module.exports = withImages({
+  inlineImageLimit: false
+})
+```
