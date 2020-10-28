@@ -38,3 +38,7 @@ declare module "*.jp2" {
   export = value;
 }
 
+declare module "*.avif" {
+  const value: string;
+  export = value;
+}

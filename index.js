@@ -11,7 +11,7 @@ module.exports = ({ dynamicAssetPrefix = false, ...nextConfig } = {}) => {
         inlineImageLimit: 8192,
         assetPrefix: "",
         basePath: "",
-        fileExtensions: ["jpg", "jpeg", "png", "svg", "gif", "ico", "webp", "jp2"],
+        fileExtensions: ["jpg", "jpeg", "png", "svg", "gif", "ico", "webp", "jp2", "avif"],
       }, nextConfig);
 
       if (!options.defaultLoaders) {
