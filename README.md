@@ -4,7 +4,7 @@
 ![npm](https://img.shields.io/david/arefaslani/next-images.svg)
 
 Import images in [Next.js](https://github.com/zeit/next.js)
-(jpg, jpeg, png, svg, fig, ico, webp, and jp2 images by default).
+(jpg, jpeg, png, svg, fig, ico, webp, jp2 and avif images by default).
 
 ## Features
 * Load images from local computer
@@ -123,7 +123,7 @@ adding image types that behave similarly, but are not included by default. It's 
 **TypeScript Users:** If you exclude a file suffix, please note our shipped types declaration file will be incorrect. You'll want to use declaration merging or override dependencies for the same file suffixes as needed.
 
 **Please note**: If you have issues with a file suffix not included in our default list
-(["jpg", "jpeg", "png", "svg", "gif", "ico", "webp", "jp2"]), we won't be able to guarantee bug support.
+(["jpg", "jpeg", "png", "svg", "gif", "ico", "webp", "jp2", "avif"]), we won't be able to guarantee bug support.
 
 Example usage:
 ```js
@@ -192,5 +192,7 @@ module.exports = withImages({
 Try out some of these awesome NextJS dashboard templates developed by Creative Team and support this project indirectly :)
 
 [https://www.creative-tim.com/product/material-dashboard-pro-react/?ref=next-images](https://www.creative-tim.com/product/material-dashboard-pro-react/?ref=next-images)
+
 [https://www.creative-tim.com/product/nextjs-argon-dashboard-pro/?ref=next-images](https://www.creative-tim.com/product/nextjs-argon-dashboard-pro/?ref=next-images)
+
 [https://www.creative-tim.com/product/nextjs-material-kit-pro/?ref=next-images](https://www.creative-tim.com/product/nextjs-material-kit-pro/?ref=next-images)
