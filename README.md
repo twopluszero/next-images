@@ -191,8 +191,8 @@ module.exports = withImages({
 ### Bonus
 Try out some of these awesome NextJS dashboard templates developed by Creative Team and support this project indirectly :)
 
-[https://www.creative-tim.com/product/material-dashboard-pro-react/?ref=next-images](https://www.creative-tim.com/product/material-dashboard-pro-react/?ref=next-images)
-
 [https://www.creative-tim.com/product/nextjs-argon-dashboard-pro/?ref=next-images](https://www.creative-tim.com/product/nextjs-argon-dashboard-pro/?ref=next-images)
 
 [https://www.creative-tim.com/product/nextjs-material-kit-pro/?ref=next-images](https://www.creative-tim.com/product/nextjs-material-kit-pro/?ref=next-images)
+
+[https://www.creative-tim.com/product/nextjs-material-kit/?ref=next-images](https://www.creative-tim.com/product/nextjs-material-kit/?ref=next-images)
