@@ -31,10 +31,10 @@ module.exports = ({ dynamicAssetPrefix = false, ...nextConfig } = {}) => {
             options: {
               limit: nextConfig.inlineImageLimit,
               fallback: require.resolve("file-loader"),
-              publicPath: `${nextConfig.assetPrefix || nextConfig.basePath}/_next/static/images/`,
+              publicPath: `${(dynamicAssetPrefix ? '' : nextConfig.assetPrefix) || nextConfig.basePath}/_next/static/images/`,
               outputPath: `${isServer ? "../" : ""}static/images/`,
               postTransformPublicPath: (p) => {
-                if (dynamicAssetPrefix && !nextConfig.assetPrefix) {
+                if (dynamicAssetPrefix) {
                   return `(require("next/config").default().publicRuntimeConfig.nextImagesAssetPrefix || '') + ${p}`
                 }
                 return p
