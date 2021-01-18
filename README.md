@@ -71,6 +71,8 @@ You can serve remote images by setting ***assetPrefix*** option.
 
 Dynamic (runtime) asset prefixes are also supported, you can enable this feature by setting ***dynamicAssetPrefix*** to `true`.
 
+> :warning: **If you are using dynamic asset prefixes**: Dynamic (runtime) asset prefixing is heavily based on public [runtime configuration](https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration) feature of Next.js which means your project cannot have any statically generated pages if you enable dynamic asset prefixes.
+
 Example usage:
 ```js
 // next.config.js
