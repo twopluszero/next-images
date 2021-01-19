@@ -33,25 +33,25 @@ module.exports = ({ dynamicAssetPrefix = false, ...nextConfig } = {}) => {
               fallback: require.resolve("file-loader"),
               outputPath: `${isServer ? "../" : ""}static/images/`,
               ...(dynamicAssetPrefix
-								? {
-										publicPath: `${
-											isServer ? '/_next/' : ''
-										}static/images/`,
-										postTransformPublicPath: (p) => {
-											if (isServer) {
-												return `(require("next/config").default().serverRuntimeConfig.nextImagesAssetPrefix || '') + ${p}`;
-											}
+                ? {
+                    publicPath: `${
+                      isServer ? '/_next/' : ''
+                    }static/images/`,
+                    postTransformPublicPath: (p) => {
+                      if (isServer) {
+                        return `(require("next/config").default().serverRuntimeConfig.nextImagesAssetPrefix || '') + ${p}`;
+                      }
 
-											return `(__webpack_public_path__ || '') + ${p}`;
-										},
-								  }
-								: {
-										publicPath: `${
-											nextConfig.assetPrefix ||
-											nextConfig.basePath ||
-											''
-										}/_next/static/images/`,
-								  }),
+                      return `(__webpack_public_path__ || '') + ${p}`;
+                    },
+                  }
+                : {
+                    publicPath: `${
+                      nextConfig.assetPrefix ||
+                      nextConfig.basePath ||
+                      ''
+                    }/_next/static/images/`,
+                  }),
               name: "[name]-[hash].[ext]",
               esModule: nextConfig.esModule || false
             }
