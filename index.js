@@ -1,10 +1,10 @@
 module.exports = ({ dynamicAssetPrefix = false, ...nextConfig } = {}) => {
   return Object.assign({}, nextConfig, {
-    publicRuntimeConfig: dynamicAssetPrefix 
-      ? Object.assign({}, nextConfig.publicRuntimeConfig, {
-        nextImagesAssetPrefix: nextConfig.assetPrefix
+    serverRuntimeConfig: dynamicAssetPrefix 
+      ? Object.assign({}, nextConfig.serverRuntimeConfig, {
+        nextImagesAssetPrefix: nextConfig.assetPrefix || nextConfig.basePath,
       })
-      : nextConfig.publicRuntimeConfig,
+      : nextConfig.serverRuntimeConfig,
     webpack(config, options) {
       const { isServer } = options;
       nextConfig = Object.assign({
@@ -31,14 +31,27 @@ module.exports = ({ dynamicAssetPrefix = false, ...nextConfig } = {}) => {
             options: {
               limit: nextConfig.inlineImageLimit,
               fallback: require.resolve("file-loader"),
-              publicPath: `${nextConfig.assetPrefix || nextConfig.basePath}/_next/static/images/`,
               outputPath: `${isServer ? "../" : ""}static/images/`,
-              postTransformPublicPath: (p) => {
-                if (dynamicAssetPrefix && !nextConfig.assetPrefix) {
-                  return `(require("next/config").default().publicRuntimeConfig.nextImagesAssetPrefix || '') + ${p}`
-                }
-                return p
-              },
+              ...(dynamicAssetPrefix
+                ? {
+                    publicPath: `${
+                      isServer ? '/_next/' : ''
+                    }static/images/`,
+                    postTransformPublicPath: (p) => {
+                      if (isServer) {
+                        return `(require("next/config").default().serverRuntimeConfig.nextImagesAssetPrefix || '') + ${p}`;
+                      }
+
+                      return `(__webpack_public_path__ || '') + ${p}`;
+                    },
+                  }
+                : {
+                    publicPath: `${
+                      nextConfig.assetPrefix ||
+                      nextConfig.basePath ||
+                      ''
+                    }/_next/static/images/`,
+                  }),
               name: "[name]-[hash].[ext]",
               esModule: nextConfig.esModule || false
             }
