@@ -137,6 +137,21 @@ module.exports = withImages({
 })
 ```
 
+### Name
+You can change the structure of the generated file names by passing the `name` option:
+
+```js
+// next.config.js
+const withImages = require('next-images')
+module.exports = withImages({
+  name: "[name].[hash:base64:8].[ext]",
+  webpack(config, options) {
+    return config
+  }
+})
+```
+
+The default value is `"[name]-[hash].[ext]"`.  Documentation for available tokens like `[name]`, `[hash]`, etc can be found in [webpack/loader-utils](https://github.com/webpack/loader-utils#interpolatename)
 
 ### ES Modules
 > By default, file-loader generates JS modules that use the ES modules syntax. There are some cases in which using ES modules is beneficial, like in the case of module concatenation and tree shaking.
