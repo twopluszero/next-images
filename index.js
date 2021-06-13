@@ -52,7 +52,7 @@ module.exports = ({ dynamicAssetPrefix = false, ...nextConfig } = {}) => {
                       ''
                     }/_next/static/images/`,
                   }),
-              name: "[name]-[hash].[ext]",
+              name: nextConfig.name || "[name]-[hash].[ext]",
               esModule: nextConfig.esModule || false
             }
           }
