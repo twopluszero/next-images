@@ -182,14 +182,23 @@ import img from "./img.png";
 
 ### Typescript
 Typescript doesn't know how interpret imported images. `next-images` package contains definitions for image modules,
-**you need to add reference to next-images types** (third line) into your `next-env.d.ts` file.
+**you need to add reference to next-images types** into a type definition file, e.g. `additional.d.ts`, and then reference this from `tsconfig.json`.
 
-```diff
-/// <reference types="next" />
-/// <reference types="next/types/global" />
-
-+ /// <reference types="next-images" />
+```js
+// additional.d.ts
+/// <reference types="next-images" />
 ```
+
+```json
+// tsconfig.json
+{
+  ...
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "additional.d.ts"],
+  ...
+}
+```
+
+See the Next.js [docs](https://nextjs.org/docs/basic-features/typescript) for more information.
 
 ### With `next/image`
 
