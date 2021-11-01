@@ -23,7 +23,7 @@ module.exports = ({ dynamicAssetPrefix = false, ...nextConfig } = {}) => {
       config.module.rules.push({
         test: new RegExp(`\\.(${nextConfig.fileExtensions.join('|')})$`),
         // Next.js already handles url() in css/sass/scss files
-        issuer: /\.\w+(?<!(s?c|sa)ss)$/i,
+        issuer: new RegExp('\.\w+(?<!(s?c|sa)ss)$', 'i'),
         exclude: nextConfig.exclude,
         use: [
           {
