@@ -1,6 +1,6 @@
 module.exports = ({ dynamicAssetPrefix = false, ...nextConfig } = {}) => {
   return Object.assign({}, nextConfig, {
-    serverRuntimeConfig: dynamicAssetPrefix 
+    serverRuntimeConfig: dynamicAssetPrefix
       ? Object.assign({}, nextConfig.serverRuntimeConfig, {
         nextImagesAssetPrefix: nextConfig.assetPrefix || nextConfig.basePath,
       })
@@ -23,7 +23,7 @@ module.exports = ({ dynamicAssetPrefix = false, ...nextConfig } = {}) => {
       config.module.rules.push({
         test: new RegExp(`\\.(${nextConfig.fileExtensions.join('|')})$`),
         // Next.js already handles url() in css/sass/scss files
-        issuer: new RegExp('\.\w+(?<!(s?c|sa)ss)$', 'i'),
+        issuer: new RegExp('\\.\\w+(?<!(s?c|sa)ss)$', 'i'),
         exclude: nextConfig.exclude,
         use: [
           {
